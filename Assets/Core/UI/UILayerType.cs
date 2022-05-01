@@ -1,0 +1,3 @@
+﻿namespace VavilichevGD.Architecture.UserInterface {
+	
+}
