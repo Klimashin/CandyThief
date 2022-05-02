@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 
 public class PlayerCharacter : TimelineTickable, IDeath
@@ -21,15 +22,19 @@ public class PlayerCharacter : TimelineTickable, IDeath
         _plannedAction = action;
     }
 
-    public void Death()
+    public void Death(DeathType deathType = DeathType.Default)
     {
         IsDead = true;
-        if (_actionCoroutine != null)
+        if (deathType == DeathType.Default)
         {
-            StopCoroutine(_actionCoroutine);
+            StartCoroutine(DeathAnimation());
         }
-
-        StartCoroutine(DeathAnimation());
+        else
+        {
+            transform
+                .DOScale(Vector3.zero, 0.5f)
+                .SetEase(Ease.InQuad);
+        }
     }
 
     private PlayerActionType _plannedAction;
@@ -114,7 +119,7 @@ public class PlayerCharacter : TimelineTickable, IDeath
 
     public IEnumerator DeathAnimation()
     {
-        yield return null;
+        yield return new WaitForSeconds(1f);
     }
 
     public void CollectCake()
@@ -125,5 +130,11 @@ public class PlayerCharacter : TimelineTickable, IDeath
 
 public interface IDeath
 {
-    void Death();
+    void Death(DeathType deathType = DeathType.Default);
+}
+
+public enum DeathType
+{
+    Default,
+    Fall
 }

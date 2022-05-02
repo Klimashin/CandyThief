@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class HunterEnemy : TimelineTickable, IDeath, IPlayerCharacterEffect
@@ -16,9 +17,20 @@ public class HunterEnemy : TimelineTickable, IDeath, IPlayerCharacterEffect
         StartCoroutine(Move(tickDuration));
     }
 
-    public void Death()
+    public void Death(DeathType deathType = DeathType.Default)
     {
-        gameObject.SetActive(false);
+        enabled = false;
+        if (deathType == DeathType.Default)
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            transform
+                .DOScale(Vector3.zero, 0.5f)
+                .SetEase(Ease.InQuad)
+                .OnComplete(() => gameObject.SetActive(false));
+        }
     }
 
     public void ApplyEffect(PlayerCharacter character)

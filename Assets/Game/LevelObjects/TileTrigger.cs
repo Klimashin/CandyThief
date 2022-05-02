@@ -1,10 +1,11 @@
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 public abstract class TileTrigger : MonoBehaviour
 {
-    public bool TriggeredByEnemy;
-    
+    public virtual bool TriggeredByIDeath { get; } = false;
+
     public Vector3Int GridPosition { get; protected set; }
     
     protected GridController Grid;
@@ -53,4 +54,12 @@ public abstract class TileTrigger : MonoBehaviour
     }
 
     public abstract void ActivateTrigger(PlayerCharacter character);
+
+    public virtual void DeathTrigger(List<IDeath> triggerObjects)
+    {
+        foreach (var triggerObject in triggerObjects)
+        {
+            triggerObject.Death();
+        }
+    }
 }

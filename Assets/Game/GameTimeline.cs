@@ -103,12 +103,21 @@ public class GameTimeline : MonoBehaviour
 
     private void ApplyTileTriggers()
     {
-        var activeTriggers = _tileTriggers.Where(t => t.GridPosition == _playerCharacter.GridPosition);
-        foreach (var tileTrigger in activeTriggers)
+        foreach (var tileTrigger in _tileTriggers)
         {
-            if (tileTrigger.GridPosition == _playerCharacter.GridPosition)
+            if (tileTrigger.TriggeredByIDeath)
             {
-                tileTrigger.ActivateTrigger(_playerCharacter);
+                var activators =
+                    _timelineObjects.Where(obj => obj is IDeath && obj.GridPosition == tileTrigger.GridPosition);
+                
+                tileTrigger.DeathTrigger(activators.OfType<IDeath>().ToList());
+            }
+            else
+            {
+                if (tileTrigger.GridPosition == _playerCharacter.GridPosition)
+                {
+                    tileTrigger.ActivateTrigger(_playerCharacter);
+                }
             }
         }
     }
