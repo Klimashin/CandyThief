@@ -30,7 +30,8 @@ public class FloorDestroyTrigger : TileTrigger
         {
             yield return null;
         }
-
+        
+        Grid.GetFloorTilemap().SetTile(GridPosition, null);
         var pit = Instantiate(_pit, Grid.transform);
         pit.transform.position = transform.position;
         pit.UpdateGridPosition();

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ceiling2
+  m_Name: ceiling-part-3
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: e9654e08f1eeb5d40afd03323c3a3bbb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a496d940527b663429eae91f7ccba375, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
