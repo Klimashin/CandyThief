@@ -129,3 +129,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e65231dff01a0d4dbe383b215b70a25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fallSfx: {fileID: 8300000, guid: 8b0c6787a64509142993746617b98226, type: 3}
+  _soundSystem: {fileID: 11400000, guid: 0f6ec947162324a4498a3ead039e9e27, type: 2}

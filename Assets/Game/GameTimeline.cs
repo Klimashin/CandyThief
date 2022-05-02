@@ -9,7 +9,7 @@ public class GameTimeline : MonoBehaviour
 {
     [SerializeField] private PlayerCharacter _playerCharacter;
     [SerializeField] private float _tickDuration = 0.5f;
-    
+
     private readonly Queue<PlayerActionType> _actionsQueue = new ();
     private readonly HashSet<TimelineTickable> _timelineObjects = new ();
     private readonly HashSet<TileTrigger> _tileTriggers = new ();
@@ -98,7 +98,7 @@ public class GameTimeline : MonoBehaviour
 
     private IEnumerator LevelCompletedCoroutine()
     {
-        yield return null;
+        yield return new WaitForSeconds(1.5f);
     }
 
     private void ApplyTileTriggers()
@@ -107,10 +107,12 @@ public class GameTimeline : MonoBehaviour
         {
             if (tileTrigger.TriggeredByIDeath)
             {
-                var activators =
-                    _timelineObjects.Where(obj => obj is IDeath && obj.GridPosition == tileTrigger.GridPosition);
+                var activators = _timelineObjects
+                    .Where(obj => obj is IDeath && obj.GridPosition == tileTrigger.GridPosition)
+                    .ToList();
                 
-                tileTrigger.DeathTrigger(activators.OfType<IDeath>().ToList());
+                if (activators.Count > 0)
+                    tileTrigger.DeathTrigger(activators.OfType<IDeath>().ToList());
             }
             else
             {

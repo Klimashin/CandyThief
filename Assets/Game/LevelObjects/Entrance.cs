@@ -2,12 +2,17 @@ using UnityEngine;
 
 public class Entrance : TileTrigger
 {
+    [SerializeField] private AudioClip _winSfx;
+    [SerializeField] private SoundSystem _soundSystem;
+    
     public override void ActivateTrigger(PlayerCharacter character)
     {
         if (!character.HasCake)
         {
             return;
         }
+        
+        _soundSystem.PlayOneShot(_winSfx);
 
         Timeline.LevelCompleted();
     }

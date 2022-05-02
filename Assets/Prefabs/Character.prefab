@@ -56,6 +56,8 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _animator: {fileID: 7306930019394360998}
+  _loseSfx: {fileID: 8300000, guid: 1327355dc32f60a47b1dc53b06953370, type: 3}
+  _soundSystem: {fileID: 11400000, guid: 0f6ec947162324a4498a3ead039e9e27, type: 2}
 --- !u!95 &7306930019394360998
 Animator:
   serializedVersion: 4
@@ -148,7 +150,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0337d75cdc1224641a85a3baf6e57b50, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

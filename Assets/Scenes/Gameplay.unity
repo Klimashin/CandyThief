@@ -11543,7 +11543,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.6942003, y: 1}
+    m_SensorSize: {x: 1.752, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -22930,6 +22930,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerCharacter: {fileID: 240049881}
   _tickDuration: 0.5
+  _winSfx: {fileID: 8300000, guid: aac69b01d9b130b4b893d33b72f7d77d, type: 3}
+  _soundSystem: {fileID: 11400000, guid: 0f6ec947162324a4498a3ead039e9e27, type: 2}
 --- !u!114 &2128903135
 MonoBehaviour:
   m_ObjectHideFlags: 0

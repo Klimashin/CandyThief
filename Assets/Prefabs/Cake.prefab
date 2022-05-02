@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cakeRenderer: {fileID: 1936285646774689094}
+  _cakeSfx: {fileID: 8300000, guid: adad2c658dcbca840bdcf98c5586bce6, type: 3}
+  _soundSystem: {fileID: 11400000, guid: 0f6ec947162324a4498a3ead039e9e27, type: 2}
 --- !u!1 &1936285646774689092
 GameObject:
   m_ObjectHideFlags: 0
