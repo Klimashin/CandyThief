@@ -3,6 +3,8 @@ using UnityEngine;
 
 public abstract class TileTrigger : MonoBehaviour
 {
+    public bool TriggeredByEnemy;
+    
     public Vector3Int GridPosition { get; protected set; }
     
     protected GridController Grid;

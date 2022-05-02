@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Level_3
   m_EditorClassIdentifier: 
   _sceneName: Level_3
+  _nextSceneName: Level_4
   _repositoryReferences: []
   _interactorsReferences: []
   _uiPrefabs:

@@ -10,7 +10,8 @@ public class PlayerCharacter : TimelineTickable, IDeath
     private static readonly int X = Animator.StringToHash("X");
     private static readonly int Y = Animator.StringToHash("Y");
 
-    public bool IsDead { get; private set; }
+    public bool IsDead { get; set; }
+    public bool HasCake { get; private set; }
     public Vector3Int PrevGridPosition { get; private set; }
 
     public override int TickOrder => 0;
@@ -114,6 +115,11 @@ public class PlayerCharacter : TimelineTickable, IDeath
     public IEnumerator DeathAnimation()
     {
         yield return null;
+    }
+
+    public void CollectCake()
+    {
+        HasCake = true;
     }
 }
 

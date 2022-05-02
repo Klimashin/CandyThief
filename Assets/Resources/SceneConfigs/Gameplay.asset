@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Gameplay
   m_EditorClassIdentifier: 
   _sceneName: Gameplay
+  _nextSceneName: MainMenu
   _repositoryReferences: []
   _interactorsReferences: []
   _uiPrefabs:

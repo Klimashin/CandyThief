@@ -7,6 +7,7 @@ using UnityEngine;
 public sealed class SceneConfig : ScriptableObject
 {
     [SerializeField, SceneName] private string _sceneName;
+    [SerializeField, SceneName] private string _nextSceneName;
 
     [Header("======= CORE ARCHITECTURE =======")]
     [SerializeField, ClassReference(typeof(IRepository))]
@@ -21,6 +22,7 @@ public sealed class SceneConfig : ScriptableObject
     private List<GameObject> _uiPrefabs;
 
     public string SceneName => _sceneName;
+    public string NextSceneName => _nextSceneName;
     public string[] RepositoriesReferences => _repositoryReferences;
     public string[] InteractorsReferences => _interactorsReferences;
 

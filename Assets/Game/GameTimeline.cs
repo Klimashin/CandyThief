@@ -64,6 +64,11 @@ public class GameTimeline : MonoBehaviour
                     break;
                 }
 
+                if (_isLevelCompleted)
+                {
+                    break;
+                }
+
                 continue;
             }
             
@@ -74,13 +79,32 @@ public class GameTimeline : MonoBehaviour
         {
             yield return _playerCharacter.DeathAnimation();
 
-            Game.SceneManager.LoadScene("Gameplay");
+            Game.SceneManager.LoadScene(Game.SceneManager.CurrentScene.SceneConfig.SceneName);
         }
+        else
+        {
+            yield return LevelCompletedCoroutine();
+
+            if (!string.IsNullOrEmpty(Game.SceneManager.CurrentScene.SceneConfig.NextSceneName))
+            {
+                Game.SceneManager.LoadScene(Game.SceneManager.CurrentScene.SceneConfig.NextSceneName);
+            }
+            else
+            {
+                Game.SceneManager.LoadScene(Game.SceneManager.CurrentScene.SceneConfig.SceneName);
+            }
+        }
+    }
+
+    private IEnumerator LevelCompletedCoroutine()
+    {
+        yield return null;
     }
 
     private void ApplyTileTriggers()
     {
-        foreach (var tileTrigger in _tileTriggers)
+        var activeTriggers = _tileTriggers.Where(t => t.GridPosition == _playerCharacter.GridPosition);
+        foreach (var tileTrigger in activeTriggers)
         {
             if (tileTrigger.GridPosition == _playerCharacter.GridPosition)
             {
@@ -122,6 +146,12 @@ public class GameTimeline : MonoBehaviour
     public List<TimelineTickable> GetObjectsInATile(Vector3Int gridPos)
     {
         return _timelineObjects.Where(obj => obj.GridPosition == gridPos).ToList();
+    }
+
+    private bool _isLevelCompleted;
+    public void LevelCompleted()
+    {
+        _isLevelCompleted = true;
     }
 }
 

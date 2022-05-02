@@ -10,12 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a380634059c37444b7e6564524f9ccb, type: 3}
-  m_Name: Level_5
+  m_Name: GameCompleted
   m_EditorClassIdentifier: 
-  _sceneName: Level_5
-  _nextSceneName: GameCompleted
+  _sceneName: GameCompleted
+  _nextSceneName: MainMenu
   _repositoryReferences: []
   _interactorsReferences: []
-  _uiPrefabs:
-  - {fileID: 3619973607868595581, guid: 14f598201b08dcd4c9104d7e4b5fbb14, type: 3}
-  - {fileID: 3619973607868595581, guid: dd9c6dcc6abbfd5428261d3ffc3c2884, type: 3}
+  _uiPrefabs: []
