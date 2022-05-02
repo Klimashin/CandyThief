@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class MainMenuScreen : UIScreen
 {
     [SerializeField, SceneName] private string _gameplaySceneName;
-    [SerializeField] private AudioClip _mainMenuMusic;
     [SerializeField] private SoundSystem _soundSystem;
     
     [SerializeField] private Button _startGameButton;
@@ -21,7 +20,7 @@ public class MainMenuScreen : UIScreen
     protected override void OnPreShow()
     {
         base.OnPreShow();
-        _soundSystem.PlayMusicClip(_mainMenuMusic);
+        _soundSystem.PlayMusicClip(Game.SceneManager.CurrentScene.SceneConfig.SceneMusic);
         SetMenuButtonsActive(false);
     }
 
