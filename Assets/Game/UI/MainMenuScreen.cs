@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class MainMenuScreen : UIScreen
 {
-    [SerializeField, SceneName] private string _gameplaySceneName;
     [SerializeField] private SoundSystem _soundSystem;
     
     [SerializeField] private Button _startGameButton;
@@ -48,7 +47,7 @@ public class MainMenuScreen : UIScreen
 
     private void OnStartButtonClick()
     {
-        Game.SceneManager.LoadScene(_gameplaySceneName);
+        Game.SceneManager.LoadScene(Game.SceneManager.CurrentScene.SceneConfig.NextSceneName);
     }
 
     private void OnSettingsButtonClick()

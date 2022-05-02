@@ -131,7 +131,7 @@ MonoBehaviour:
   _fadeInOutDuration: 0.5
   _layer: 0
   _showByDefault: 1
-  _gameplaySceneName: Gameplay
+  _gameplaySceneName: MainMenu
   _soundSystem: {fileID: 11400000, guid: 0f6ec947162324a4498a3ead039e9e27, type: 2}
   _startGameButton: {fileID: 4893540781658687958}
   _settingsButton: {fileID: 2728650999917047664}

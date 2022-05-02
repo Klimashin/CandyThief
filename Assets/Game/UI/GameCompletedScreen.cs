@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class GameCompletedScreen : UIScreen
 {
-    [SerializeField, SceneName] private string _mainMenuSceneName;
     [SerializeField] private SoundSystem _soundSystem;
     
     [SerializeField] private Button _mainMenuButton;
@@ -24,16 +23,16 @@ public class GameCompletedScreen : UIScreen
     private void OnEnable()
     {
         Time.timeScale = 1f;
-        _mainMenuButton.onClick.AddListener(OnStartButtonClick);
+        _mainMenuButton.onClick.AddListener(OnMainMenuButtonClick);
     }
     
     private void OnDisable()
     {
-        _mainMenuButton.onClick.RemoveListener(OnStartButtonClick);
+        _mainMenuButton.onClick.RemoveListener(OnMainMenuButtonClick);
     }
 
-    private void OnStartButtonClick()
+    private void OnMainMenuButtonClick()
     {
-        Game.SceneManager.LoadScene(_mainMenuSceneName);
+        Game.SceneManager.LoadScene(Game.SceneManager.CurrentScene.SceneConfig.NextSceneName);
     }
 }
