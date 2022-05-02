@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class HunterEnemy : TimelineTickable, IDeath, IPlayerCharacterEffect
 {
+    public int AggroRadius = 5;
+    
     public override void Tick(float tickDuration)
     {
-        var path = Grid.FindPath(GridPosition, Timeline.PlayerCharacter.GridPosition);
-        if (path.Count == 0)
+        var path = Grid.FindPath(GridPosition, Timeline.PlayerCharacter.PrevGridPosition);
+        if (path.Count == 0 || path.Count > AggroRadius)
         {
             return;
         }
