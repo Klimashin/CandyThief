@@ -45,6 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 829ba52635018414b92b64279bee811b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   _moveSequence:
   - Direction: 1
     MoveLength: 4
@@ -54,6 +63,9 @@ MonoBehaviour:
     MoveLength: 4
   - Direction: 2
     MoveLength: 1
+  _spriteLeft: {fileID: 21300000, guid: 47af4e22841ba6840ae900f0a9cd176c, type: 3}
+  _spriteTop: {fileID: 21300000, guid: dd3278e60a988ed43a58c9ca815ee572, type: 3}
+  _spriteDown: {fileID: 21300000, guid: 65d20d71226f3024ba68a060244186ed, type: 3}
 --- !u!1 &45696284847329519
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,8 +139,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a32136a5bb1d9fa43965309d47548111, type: 3}
-  m_Color: {r: 0.8018868, g: 0.17777678, b: 0.17777678, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 65d20d71226f3024ba68a060244186ed, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

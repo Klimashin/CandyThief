@@ -5,6 +5,9 @@ using UnityEngine;
 public class MovingTrap : TimelineTickable, IPlayerCharacterEffect
 {
     [SerializeField] List<MoveSequenceElement> _moveSequence;
+    [SerializeField] private Sprite _spriteLeft;
+    [SerializeField] private Sprite _spriteTop;
+    [SerializeField] private Sprite _spriteDown;
 
     private int _currentMoveSeqIndex;
     private int _currentMoveSeqProgress;
@@ -33,10 +36,30 @@ public class MovingTrap : TimelineTickable, IPlayerCharacterEffect
         
         var currentMove = _moveSequence[_currentMoveSeqIndex];
         var movePos = GridPosition + GridController.GetVectorInDirection(currentMove.Direction, 1);
+        SetSprite(movePos - GridPosition);
         _currentMoveSeqProgress++;
 
         GridPosition = movePos;
         StartCoroutine(Move(tickDuration));
+    }
+
+    private void SetSprite(Vector3Int direction)
+    {
+        var r = GetComponentInChildren<SpriteRenderer>();
+        r.flipX = false;
+        if (direction.y > 0)
+        {
+            r.sprite = _spriteTop;
+        }
+        else if (direction.y < 0)
+        {
+            r.sprite = _spriteDown;
+        }
+        else
+        {
+            r.sprite = _spriteLeft;
+            r.flipX = direction.x > 0;
+        }
     }
 
     private void NextMoveSeq()
