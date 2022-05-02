@@ -132,7 +132,6 @@ MonoBehaviour:
   _layer: 0
   _showByDefault: 1
   _gameplaySceneName: Gameplay
-  _mainMenuMusic: {fileID: 8300000, guid: 9ae2a3824c5772141be70c1671281a22, type: 3}
   _soundSystem: {fileID: 11400000, guid: 0f6ec947162324a4498a3ead039e9e27, type: 2}
   _startGameButton: {fileID: 4893540781658687958}
   _settingsButton: {fileID: 2728650999917047664}
@@ -312,9 +311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5633917701917682956, guid: 75d4ba8324414854dac5e9c1132f1ca4, type: 3}
       propertyPath: m_text
-      value: 'New Game
-
-'
+      value: "\u0418\u0433\u0440\u0430\u0442\u044C\n"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75d4ba8324414854dac5e9c1132f1ca4, type: 3}
@@ -431,7 +428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5633917701917682956, guid: 75d4ba8324414854dac5e9c1132f1ca4, type: 3}
       propertyPath: m_text
-      value: Quit
+      value: "\u0412\u044B\u0445\u043E\u0434"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75d4ba8324414854dac5e9c1132f1ca4, type: 3}
@@ -548,9 +545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5633917701917682956, guid: 75d4ba8324414854dac5e9c1132f1ca4, type: 3}
       propertyPath: m_text
-      value: 'Settings
-
-'
+      value: "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438\n"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75d4ba8324414854dac5e9c1132f1ca4, type: 3}

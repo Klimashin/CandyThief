@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a380634059c37444b7e6564524f9ccb, type: 3}
   m_Name: GameCompleted
   m_EditorClassIdentifier: 
-  _sceneName: MainMenu
+  _sceneName: GameCompleted
   _nextSceneName: MainMenu
-  _sceneMusic: {fileID: 8300000, guid: 97ea7a28644ec1d4db4cd4f9eff4361f, type: 3}
+  _sceneMusic: {fileID: 8300000, guid: 07ed59a938525f34baddbe5cfad684a5, type: 3}
   _repositoryReferences: []
   _interactorsReferences: []
-  _uiPrefabs: []
+  _uiPrefabs:
+  - {fileID: 3619973607868595581, guid: 36b129705145b174a81934f7194d6676, type: 3}
