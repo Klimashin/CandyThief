@@ -6,12 +6,15 @@ using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TemplateTrap : TimelineTickable, IPlayerCharacterEffect
 {
     [TableMatrix] [OdinSerialize] private bool[,] Template = new bool[11, 11];
     [SerializeField] private int Cooldown = 2;
     [SerializeField] private GameObject TemplateCell;
+
+    public UnityEvent OnActivated;
 
     private int _templateCenterIndex = 5;
     private int _currentCooldown;
@@ -88,10 +91,17 @@ public class TemplateTrap : TimelineTickable, IPlayerCharacterEffect
     {
         foreach (var templateCell in _templateMap.Values)
         {
-            templateCell.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+            templateCell.GetComponentInChildren<SpriteRenderer>().enabled = false;
         }
         
+        OnActivated.Invoke();
+        
         yield return new WaitForSeconds(tickDuration);
+        
+        foreach (var templateCell in _templateMap.Values)
+        {
+            templateCell.GetComponentInChildren<SpriteRenderer>().enabled = true;
+        }
         
         UpdateTemplate();
     }
