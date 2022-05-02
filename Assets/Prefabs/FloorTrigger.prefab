@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b2e580adf991b94e9a795f92bacf2aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destroyedTile: {fileID: 11400000, guid: c067a8414ddbcef4fb82a3812cd7051c, type: 2}
+  _pit: {fileID: 889911418309243324, guid: 8cc9a507bad6daa4db75384720f5977e, type: 3}
   _preDestroyedTile: {fileID: 11400000, guid: 58dae514bdf10a74a8881db4b8366786, type: 2}

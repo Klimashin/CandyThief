@@ -11,12 +11,17 @@ public abstract class TileTrigger : MonoBehaviour
     protected GridController Grid;
     protected GameTimeline Timeline;
 
+    public void UpdateGridPosition()
+    {
+        GridPosition = Grid.WorldToCell(transform.position);
+        transform.position = Grid.CellToWorld(GridPosition);
+    }
+
     protected virtual void Awake()
     {
         Grid = GetComponentInParent<GridController>();
         Timeline = GetComponentInParent<GameTimeline>();
-        GridPosition = Grid.WorldToCell(transform.position);
-        transform.position = Grid.CellToWorld(GridPosition);
+        UpdateGridPosition();
     }
     
     protected virtual void OnEnable()

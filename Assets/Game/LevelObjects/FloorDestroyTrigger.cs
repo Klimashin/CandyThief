@@ -6,10 +6,9 @@ using UnityEngine.Tilemaps;
 
 public class FloorDestroyTrigger : TileTrigger
 {
-    [SerializeField] private TileBase _destroyedTile;
+    [SerializeField] private PitTrigger _pit;
     [SerializeField] private TileBase _preDestroyedTile;
-
-    private int _currentTilesListIndex = 0;
+    
     private Coroutine _activationCoroutine;
     
     public override void ActivateTrigger(PlayerCharacter character)
@@ -32,19 +31,16 @@ public class FloorDestroyTrigger : TileTrigger
             yield return null;
         }
 
-        Grid.GetFloorTilemap().SetTile(GridPosition, null);
-        Grid.GetObstaclesTilemap().SetTile(GridPosition, _destroyedTile);
+        var pit = Instantiate(_pit, Grid.transform);
+        pit.transform.position = transform.position;
+        pit.UpdateGridPosition();
 
         var takedown = Timeline
             .GetObjectsInATile(GridPosition)
-            .OfType<IDeath>();
+            .OfType<IDeath>()
+            .ToList();
         
-        foreach (var death in takedown)
-        {
-            death.Death();
-        }
-
-        Grid.UpdateWalkability(GridPosition);
+        pit.DeathTrigger(takedown);
 
         enabled = false;
     }
