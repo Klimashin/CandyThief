@@ -4,6 +4,8 @@ using UnityEngine;
 public class Cake : TileTrigger
 {
     [SerializeField] private SpriteRenderer _cakeRenderer;
+    [SerializeField] private AudioClip _cakeSfx;
+    [SerializeField] private SoundSystem _soundSystem;
     
     private bool _executed;
     public override void ActivateTrigger(PlayerCharacter character)
@@ -14,6 +16,8 @@ public class Cake : TileTrigger
         }
 
         _executed = true;
+        
+        _soundSystem.PlayOneShot(_cakeSfx);
         
         _cakeRenderer.transform
             .DOScale(Vector3.zero, 0.3f)

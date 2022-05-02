@@ -46,3 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pit: {fileID: 889911418309243324, guid: 8cc9a507bad6daa4db75384720f5977e, type: 3}
   _preDestroyedTile: {fileID: 11400000, guid: 58dae514bdf10a74a8881db4b8366786, type: 2}
+  _crack1Sfx: {fileID: 8300000, guid: d1eab0f6ab1ac6746a66be0e7aa3034b, type: 3}
+  _crack2Sfx: {fileID: 8300000, guid: 04c8ae61b9914f945a30f9b5997af3ac, type: 3}
+  _soundSystem: {fileID: 11400000, guid: 0f6ec947162324a4498a3ead039e9e27, type: 2}

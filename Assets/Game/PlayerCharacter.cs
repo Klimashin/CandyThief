@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerCharacter : TimelineTickable, IDeath
 {
     [SerializeField] private Animator _animator;
+    [SerializeField] private AudioClip _loseSfx;
+    [SerializeField] private SoundSystem _soundSystem;
 
     public bool IsDead { get; set; }
     public bool HasCake { get; private set; }
@@ -115,6 +117,8 @@ public class PlayerCharacter : TimelineTickable, IDeath
 
     public IEnumerator DeathAnimation()
     {
+        _soundSystem.PlayOneShot(_loseSfx);
+        
         yield return new WaitForSeconds(1f);
     }
 
