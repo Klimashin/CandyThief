@@ -91,7 +91,7 @@ public class TemplateTrap : TimelineTickable, IPlayerCharacterEffect
     {
         foreach (var templateCell in _templateMap.Values)
         {
-            templateCell.GetComponentInChildren<SpriteRenderer>().enabled = false;
+            templateCell.gameObject.SetActive(false);
         }
         
         OnActivated.Invoke();
@@ -100,7 +100,7 @@ public class TemplateTrap : TimelineTickable, IPlayerCharacterEffect
         
         foreach (var templateCell in _templateMap.Values)
         {
-            templateCell.GetComponentInChildren<SpriteRenderer>().enabled = true;
+            templateCell.gameObject.SetActive(true);
         }
         
         UpdateTemplate();
