@@ -6,10 +6,6 @@ using UnityEngine;
 public class PlayerCharacter : TimelineTickable, IDeath
 {
     [SerializeField] private Animator _animator;
-    
-    private static readonly int IsMoving = Animator.StringToHash("IsMoving");
-    private static readonly int X = Animator.StringToHash("X");
-    private static readonly int Y = Animator.StringToHash("Y");
 
     public bool IsDead { get; set; }
     public bool HasCake { get; private set; }

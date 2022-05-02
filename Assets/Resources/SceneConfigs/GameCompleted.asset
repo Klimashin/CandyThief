@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a380634059c37444b7e6564524f9ccb, type: 3}
   m_Name: GameCompleted
   m_EditorClassIdentifier: 
-  _sceneName: GameCompleted
+  _sceneName: MainMenu
   _nextSceneName: MainMenu
+  _sceneMusic: {fileID: 8300000, guid: 97ea7a28644ec1d4db4cd4f9eff4361f, type: 3}
   _repositoryReferences: []
   _interactorsReferences: []
   _uiPrefabs: []

@@ -13,6 +13,10 @@ public abstract class TimelineTickable : SerializedMonoBehaviour
     
     protected GridController Grid;
     protected GameTimeline Timeline;
+    
+    protected static readonly int IsMoving = Animator.StringToHash("IsMoving");
+    protected static readonly int X = Animator.StringToHash("X");
+    protected static readonly int Y = Animator.StringToHash("Y");
 
     protected virtual void Awake()
     {
@@ -43,7 +47,7 @@ public abstract class TimelineTickable : SerializedMonoBehaviour
         transform.position = grid.CellToWorld(currentCell);
     }
     
-    protected IEnumerator Move(float tickDuration)
+    protected virtual IEnumerator Move(float tickDuration)
     {
         Vector3 initialPosition = transform.position;
         Vector3 targetPosition = Grid.CellToWorld(GridPosition);

@@ -1,10 +1,8 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class GameplayScreen : UIScreen
 {
-    [SerializeField] private AudioClip _gameplayMusic;
     [SerializeField] private SoundSystem _soundSystem;
     
     private PauseMenuPopup _pauseMenu;
@@ -12,7 +10,7 @@ public class GameplayScreen : UIScreen
     public override void OnCreate()
     {
         base.OnCreate();
-        _soundSystem.PlayMusicClip(_gameplayMusic);
+        _soundSystem.PlayMusicClip(Game.SceneManager.CurrentScene.SceneConfig.SceneMusic);
     }
 
     protected override void OnPostShow()

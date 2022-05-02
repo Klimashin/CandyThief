@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneName: Level_4
   _nextSceneName: Level_5
+  _sceneMusic: {fileID: 8300000, guid: 07ed59a938525f34baddbe5cfad684a5, type: 3}
   _repositoryReferences: []
   _interactorsReferences: []
   _uiPrefabs:

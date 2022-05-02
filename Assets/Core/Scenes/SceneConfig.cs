@@ -8,6 +8,7 @@ public sealed class SceneConfig : ScriptableObject
 {
     [SerializeField, SceneName] private string _sceneName;
     [SerializeField, SceneName] private string _nextSceneName;
+    [SerializeField] private AudioClip _sceneMusic;
 
     [Header("======= CORE ARCHITECTURE =======")]
     [SerializeField, ClassReference(typeof(IRepository))]
@@ -23,6 +24,8 @@ public sealed class SceneConfig : ScriptableObject
 
     public string SceneName => _sceneName;
     public string NextSceneName => _nextSceneName;
+
+    public AudioClip SceneMusic => _sceneMusic;
     public string[] RepositoriesReferences => _repositoryReferences;
     public string[] InteractorsReferences => _interactorsReferences;
 

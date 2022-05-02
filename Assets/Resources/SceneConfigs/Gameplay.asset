@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneName: Gameplay
   _nextSceneName: MainMenu
+  _sceneMusic: {fileID: 8300000, guid: 6a01d707d3f83d24ba9d5474bb9a2bc8, type: 3}
   _repositoryReferences: []
   _interactorsReferences: []
   _uiPrefabs:
