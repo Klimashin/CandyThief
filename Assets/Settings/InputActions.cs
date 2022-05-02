@@ -174,6 +174,84 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Dialog"",
+            ""id"": ""908009d7-40b6-4987-a253-1ca05cc2e65c"",
+            ""actions"": [
+                {
+                    ""name"": ""Skip"",
+                    ""type"": ""Button"",
+                    ""id"": ""6ec2325b-66c7-4ae7-b80b-d32cae0e3009"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""b55a837c-cb16-4172-a7d7-b516e68a72ee"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""51127cd2-57c7-48f8-9c13-f7067f1f363e"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e26cda3c-c1d5-4e3d-92c8-2bafa7bc7fed"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Pause"",
+            ""id"": ""c817f86c-0083-4d69-8916-5fef63a538c1"",
+            ""actions"": [
+                {
+                    ""name"": ""Close"",
+                    ""type"": ""Button"",
+                    ""id"": ""cf0dfd79-efa3-45e8-ab2b-7af1809db2d5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""17968022-39fd-47bd-a7c6-86481b5d82cb"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Close"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -185,6 +263,12 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Gameplay_Down = m_Gameplay.FindAction("Down", throwIfNotFound: true);
         m_Gameplay_Left = m_Gameplay.FindAction("Left", throwIfNotFound: true);
         m_Gameplay_Right = m_Gameplay.FindAction("Right", throwIfNotFound: true);
+        // Dialog
+        m_Dialog = asset.FindActionMap("Dialog", throwIfNotFound: true);
+        m_Dialog_Skip = m_Dialog.FindAction("Skip", throwIfNotFound: true);
+        // Pause
+        m_Pause = asset.FindActionMap("Pause", throwIfNotFound: true);
+        m_Pause_Close = m_Pause.FindAction("Close", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -305,6 +389,72 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         }
     }
     public GameplayActions @Gameplay => new GameplayActions(this);
+
+    // Dialog
+    private readonly InputActionMap m_Dialog;
+    private IDialogActions m_DialogActionsCallbackInterface;
+    private readonly InputAction m_Dialog_Skip;
+    public struct DialogActions
+    {
+        private @InputActions m_Wrapper;
+        public DialogActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Skip => m_Wrapper.m_Dialog_Skip;
+        public InputActionMap Get() { return m_Wrapper.m_Dialog; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DialogActions set) { return set.Get(); }
+        public void SetCallbacks(IDialogActions instance)
+        {
+            if (m_Wrapper.m_DialogActionsCallbackInterface != null)
+            {
+                @Skip.started -= m_Wrapper.m_DialogActionsCallbackInterface.OnSkip;
+                @Skip.performed -= m_Wrapper.m_DialogActionsCallbackInterface.OnSkip;
+                @Skip.canceled -= m_Wrapper.m_DialogActionsCallbackInterface.OnSkip;
+            }
+            m_Wrapper.m_DialogActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Skip.started += instance.OnSkip;
+                @Skip.performed += instance.OnSkip;
+                @Skip.canceled += instance.OnSkip;
+            }
+        }
+    }
+    public DialogActions @Dialog => new DialogActions(this);
+
+    // Pause
+    private readonly InputActionMap m_Pause;
+    private IPauseActions m_PauseActionsCallbackInterface;
+    private readonly InputAction m_Pause_Close;
+    public struct PauseActions
+    {
+        private @InputActions m_Wrapper;
+        public PauseActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Close => m_Wrapper.m_Pause_Close;
+        public InputActionMap Get() { return m_Wrapper.m_Pause; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PauseActions set) { return set.Get(); }
+        public void SetCallbacks(IPauseActions instance)
+        {
+            if (m_Wrapper.m_PauseActionsCallbackInterface != null)
+            {
+                @Close.started -= m_Wrapper.m_PauseActionsCallbackInterface.OnClose;
+                @Close.performed -= m_Wrapper.m_PauseActionsCallbackInterface.OnClose;
+                @Close.canceled -= m_Wrapper.m_PauseActionsCallbackInterface.OnClose;
+            }
+            m_Wrapper.m_PauseActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Close.started += instance.OnClose;
+                @Close.performed += instance.OnClose;
+                @Close.canceled += instance.OnClose;
+            }
+        }
+    }
+    public PauseActions @Pause => new PauseActions(this);
     public interface IGameplayActions
     {
         void OnPause(InputAction.CallbackContext context);
@@ -312,5 +462,13 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnDown(InputAction.CallbackContext context);
         void OnLeft(InputAction.CallbackContext context);
         void OnRight(InputAction.CallbackContext context);
+    }
+    public interface IDialogActions
+    {
+        void OnSkip(InputAction.CallbackContext context);
+    }
+    public interface IPauseActions
+    {
+        void OnClose(InputAction.CallbackContext context);
     }
 }

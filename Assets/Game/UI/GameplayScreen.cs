@@ -20,7 +20,6 @@ public class GameplayScreen : UIScreen
         _pauseMenu = UIController.GetUIElement<PauseMenuPopup>();
         
         Game.InputActions.Gameplay.Pause.performed += OnPauseAction;
-        Game.InputActions.Gameplay.Enable();
 
         _pauseMenu.OnElementStartShowEvent += OnPauseMenuStartShow;
         _pauseMenu.OnElementHiddenCompletelyEvent += OnPauseMenuHiddenCompletely;

@@ -19,4 +19,5 @@ MonoBehaviour:
   _interactorsReferences: []
   _uiPrefabs:
   - {fileID: 3619973607868595581, guid: 14f598201b08dcd4c9104d7e4b5fbb14, type: 3}
+  - {fileID: 3619973607868595581, guid: f2641bcd7fa50104caacc9c139b76c78, type: 3}
   - {fileID: 3619973607868595581, guid: dd9c6dcc6abbfd5428261d3ffc3c2884, type: 3}

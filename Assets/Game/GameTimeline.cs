@@ -9,6 +9,7 @@ public class GameTimeline : MonoBehaviour
 {
     [SerializeField] private PlayerCharacter _playerCharacter;
     [SerializeField] private float _tickDuration = 0.5f;
+    [SerializeField] private DialogData _dialogData;
 
     private readonly Queue<PlayerActionType> _actionsQueue = new ();
     private readonly HashSet<TimelineTickable> _timelineObjects = new ();
@@ -29,6 +30,21 @@ public class GameTimeline : MonoBehaviour
 
     private IEnumerator TimelineCoroutine()
     {
+        yield return new WaitForSeconds(0.1f);
+
+        if (_dialogData != null)
+        {
+            var dialogPopup = UI.controller.GetUIElement<DialogPopup>();
+            dialogPopup.ShowDialog(_dialogData);
+
+            while (dialogPopup.IsActive)
+            {
+                yield return null;
+            }
+        }
+
+        Game.InputActions.Gameplay.Enable();
+        
         while (true)
         {
             if (_actionsQueue.Count > 0)

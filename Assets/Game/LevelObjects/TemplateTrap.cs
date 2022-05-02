@@ -15,6 +15,7 @@ public class TemplateTrap : TimelineTickable, IPlayerCharacterEffect
     [SerializeField] private GameObject TemplateCell;
 
     public UnityEvent OnActivated;
+    public UnityEvent OnDeActivated;
 
     private int _templateCenterIndex = 5;
     private int _currentCooldown;
@@ -97,6 +98,8 @@ public class TemplateTrap : TimelineTickable, IPlayerCharacterEffect
         OnActivated.Invoke();
         
         yield return new WaitForSeconds(tickDuration);
+        
+        OnDeActivated.Invoke();
         
         foreach (var templateCell in _templateMap.Values)
         {

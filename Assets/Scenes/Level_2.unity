@@ -439,8 +439,8 @@ Tilemap:
   - first: {x: 2, y: -1, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 2
-      m_TileSpriteIndex: 0
+      m_TileIndex: 1
+      m_TileSpriteIndex: 5
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1439,8 +1439,8 @@ Tilemap:
   - first: {x: 2, y: 3, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 2
-      m_TileSpriteIndex: 0
+      m_TileIndex: 1
+      m_TileSpriteIndex: 5
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1530,10 +1530,10 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 2
+    m_Data: {fileID: 11400000, guid: 68483bd8a73e4f6419756c31e74d98fc, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 2
-    m_Data: {fileID: 11400000, guid: 3d373e7461403d84d9ae2d31a0674d9b, type: 2}
   - m_RefCount: 18
     m_Data: {fileID: 11400000, guid: be8ce93a98bfcc645b8b12babd97f5fa, type: 2}
   - m_RefCount: 90
@@ -1541,8 +1541,8 @@ Tilemap:
   - m_RefCount: 15
     m_Data: {fileID: 11400000, guid: c067a8414ddbcef4fb82a3812cd7051c, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 2
-    m_Data: {fileID: 21300000, guid: 6bcf2fe4c466a5e4fa17e7b01dce02c2, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 15
     m_Data: {fileID: 21300000, guid: 40a9c5c87cb9c2c4193dd173d56c931f, type: 3}
   - m_RefCount: 0
@@ -1551,8 +1551,8 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: f7a2f85c2d4585f4aada4fdf7e90dc19, type: 3}
   - m_RefCount: 90
     m_Data: {fileID: 21300000, guid: 5a32ec59d5cdbfa4e98300f581a5ae7a, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 2
+    m_Data: {fileID: 21300000, guid: c30750c0355f20641a20e5a4d2c7a390, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 125
     m_Data:
@@ -13477,6 +13477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerCharacter: {fileID: 240049881}
   _tickDuration: 0.5
+  _dialogData: {fileID: 11400000, guid: 28cd9836a52e2f148a2a44ddfbe639fd, type: 2}
 --- !u!114 &2128903135
 MonoBehaviour:
   m_ObjectHideFlags: 0

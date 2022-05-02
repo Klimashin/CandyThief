@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -11,10 +10,12 @@ public class PauseMenuPopup : UIPopup
     private void OnEnable()
     {
         _mainMenuButton.onClick.AddListener(MainMenuButtonClick);
+        Game.InputActions.Pause.Close.performed += OnUnPauseAction;
     }
 
     private void OnDisable()
     {
+        Game.InputActions.Pause.Close.performed -= OnUnPauseAction;
         _mainMenuButton.onClick.RemoveListener(MainMenuButtonClick);
         Time.timeScale = 1f;
     }
@@ -23,24 +24,16 @@ public class PauseMenuPopup : UIPopup
     {
         base.OnPreShow();
         Time.timeScale = 0f;
-    }
-
-    protected override void OnPostShow()
-    {
-        base.OnPostShow();
-        Game.InputActions.Gameplay.Pause.performed += OnUnPauseAction;
-    }
-
-    protected override void OnPreHide()
-    {
-        base.OnPreHide();
-        Game.InputActions.Gameplay.Pause.performed -= OnUnPauseAction;
+        Game.InputActions.Gameplay.Disable();
+        Game.InputActions.Pause.Enable();
     }
 
     protected override void OnPostHide()
     {
         base.OnPostHide();
         Time.timeScale = 1f;
+        Game.InputActions.Gameplay.Enable();
+        Game.InputActions.Pause.Disable();
     }
 
     private void MainMenuButtonClick()
@@ -54,10 +47,5 @@ public class PauseMenuPopup : UIPopup
         {
             Hide();
         }
-    }
-
-    private void OnDestroy()
-    {
-        Game.InputActions.Gameplay.Pause.performed -= OnUnPauseAction;
     }
 }

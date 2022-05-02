@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Level_5
   m_EditorClassIdentifier: 
   _sceneName: Level_5
-  _nextSceneName: MainMenu
+  _nextSceneName: GameCompleted
   _sceneMusic: {fileID: 8300000, guid: 97ea7a28644ec1d4db4cd4f9eff4361f, type: 3}
   _repositoryReferences: []
   _interactorsReferences: []
   _uiPrefabs:
   - {fileID: 3619973607868595581, guid: 14f598201b08dcd4c9104d7e4b5fbb14, type: 3}
+  - {fileID: 3619973607868595581, guid: f2641bcd7fa50104caacc9c139b76c78, type: 3}
   - {fileID: 3619973607868595581, guid: dd9c6dcc6abbfd5428261d3ffc3c2884, type: 3}

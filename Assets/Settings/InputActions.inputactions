@@ -152,6 +152,84 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Dialog",
+            "id": "908009d7-40b6-4987-a253-1ca05cc2e65c",
+            "actions": [
+                {
+                    "name": "Skip",
+                    "type": "Button",
+                    "id": "6ec2325b-66c7-4ae7-b80b-d32cae0e3009",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b55a837c-cb16-4172-a7d7-b516e68a72ee",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "51127cd2-57c7-48f8-9c13-f7067f1f363e",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e26cda3c-c1d5-4e3d-92c8-2bafa7bc7fed",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Pause",
+            "id": "c817f86c-0083-4d69-8916-5fef63a538c1",
+            "actions": [
+                {
+                    "name": "Close",
+                    "type": "Button",
+                    "id": "cf0dfd79-efa3-45e8-ab2b-7af1809db2d5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "17968022-39fd-47bd-a7c6-86481b5d82cb",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Close",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
