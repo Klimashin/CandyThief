@@ -10,7 +10,7 @@ public abstract class Game
     public static bool isInitialized => state == ArchitectureComponentState.Initialized;
     public static ISceneManager SceneManager { get; private set; }
     public static InputActions InputActions { get; private set; }
-    public static FileStorage FileStorage { get; private set; }
+   // public static FileStorage FileStorage { get; private set; }
 
     public static void Run() 
     {
@@ -21,7 +21,7 @@ public abstract class Game
     {
         state = ArchitectureComponentState.Initializing;
         InputActions = new InputActions();
-        FileStorage = new FileStorage();
+        //FileStorage = new FileStorage();
         SceneManager = new SceneManager();
 
         yield return null;
